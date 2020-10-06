@@ -1,3 +1,4 @@
+const { response } = require('express')
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
@@ -28,6 +29,10 @@ io.on('connection', socket => {
             socket.to(roomId).broadcast.emit('user-disconnected', userId)
         })
     })
+})
+
+app.get('/', (req, res)=>{
+    res.send('test')
 })
 
 
