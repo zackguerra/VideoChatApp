@@ -11,6 +11,10 @@ app.use(express.static('public'))
 // app.use(express.static('/public/css/videostyle.css' + '/public'));
 
 
+// app.get('/', (req, res)=>{
+//     res.send('test')
+// })
+
 
 app.get('/', (req,res)=> {
     res.redirect(`/${uuidV4()}`)
@@ -31,9 +35,12 @@ io.on('connection', socket => {
     })
 })
 
-app.get('/', (req, res)=>{
-    res.send('test')
-})
 
 
-server.listen(3000)
+const PORT = process.env.PORT || 3000;
+
+// APP.LISTEN(PORT, ()=>{
+//     console.log(`App listening at http://localhost:${port}`)
+// }
+
+server.listen(PORT)
